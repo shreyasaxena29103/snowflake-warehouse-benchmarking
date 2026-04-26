@@ -15,20 +15,20 @@ different query patterns using TPC-DS SF10 data.
 > A Small (S) warehouse delivers 95% of Medium (M) performance 
 > at half the cost. XS collapses on any query involving joins 
 > or window functions.
->
-> | Query | Pattern | XS | S | M |
-|---|---|---|---|---|
-| Q1  | Simple aggregation  | 0.006s | 0.006s | 0.008s |
-| Q7  | Aggregation + join  | 116s   | 1.9s   | 2.3s   |
-| Q17 | Multi-table join    | 173s   | 0.214s | 0.252s |
-| Q19 | Multi-join + filter | 3.055s | 0.006s | 0.007s |
-| Q29 | Aggregation + join  | 159s   | 0.008s | 0.007s |
-| Q43 | Conditional agg     | 78.7s  | 0.121s | 0.120s |
-| Q12 | Window function     | 1.203s | 0.137s | 0.120s |
-| Q47 | Window + CTE        | 796s   | 0.116s | 790s   |
+
+![Schema Visualizer](benchmark_results.png)
+
+
 
 ## Recommendation
 For ad-hoc analytical workloads at SF10 scale, **S warehouse is 
 the optimal choice**. Upgrading to M adds ~20% cost with negligible 
 performance gain. XS should only be used for lightweight queries 
 with no joins.
+
+
+## Repo Structure
+- `setup/` — one-time Snowflake setup SQL
+- `queries/` — all 8 benchmark queries
+- `results/` — raw CSV output and chart
+- `analysis/` — Python notebook for visualization
