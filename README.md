@@ -30,5 +30,4 @@ with no joins.
 ## Repo Structure
 - `setup/` — one-time Snowflake setup SQL
 - `queries/` — all 8 benchmark queries
-- `results/` — raw CSV output and chart
-- `analysis/` — Python notebook for visualization
+- `results/` — raw CSV output
